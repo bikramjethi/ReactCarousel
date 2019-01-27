@@ -8,10 +8,14 @@ import { imageUrls } from "./mockData";
 
 class Carousel extends Component {
   render() {
-    const { className } = this.props;
+    const { className, circular } = this.props;
     return (
       <div className={className}>
-        <CarouselImage className="col-xs-12" imageList={imageUrls} />
+        <CarouselImage
+          className="col-xs-12"
+          imageList={imageUrls}
+          circular={circular}
+        />
       </div>
     );
   }

@@ -15,12 +15,15 @@ class CarouselImage extends Component {
     };
   }
 
-  //   componentDidMount() {
-  //   }
-
   nextImage = () => {
-    const { imageList } = this.props;
-    if (this.state.selectedImage < imageList.length - 1) {
+    const { imageList, circular } = this.props;
+    const { selectedImage } = this.state;
+    if (circular && selectedImage >= imageList.length - 1) {
+      this.setState(prevState => ({
+        selectedImage: 0
+      }));
+    }
+    if (selectedImage < imageList.length - 1) {
       this.setState(prevState => ({
         selectedImage: prevState.selectedImage + 1
       }));
@@ -28,7 +31,14 @@ class CarouselImage extends Component {
   };
 
   prevImage = () => {
-    if (this.state.selectedImage !== 0) {
+    const { imageList, circular } = this.props;
+    const { selectedImage } = this.state;
+    if (circular && selectedImage === 0) {
+      this.setState(prevState => ({
+        selectedImage: imageList.length - 1
+      }));
+    }
+    if (selectedImage !== 0) {
       this.setState(prevState => ({
         selectedImage: prevState.selectedImage - 1
       }));

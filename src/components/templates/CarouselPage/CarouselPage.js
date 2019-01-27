@@ -3,7 +3,7 @@ import Carousel from "../../organisms/Carousel";
 
 class CarouselPage extends Component {
   render() {
-    return <Carousel />;
+    return <Carousel circular />;
   }
 }
 

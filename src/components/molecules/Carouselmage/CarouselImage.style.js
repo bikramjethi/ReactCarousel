@@ -5,7 +5,19 @@ export default css`
   .slider-image {
     width: 100%;
     max-height: 768px;
+    animation-name: imageAnimation;
+    animation-duration: 3s;
   }
+
+  @keyframes imageAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .arrow-left,
   .arrow-right {
     position: absolute;
