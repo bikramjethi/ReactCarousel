@@ -4,11 +4,12 @@ export default css`
   position: relative;
   .slider-image {
     width: 100%;
+    max-height: 768px;
   }
   .arrow-left,
   .arrow-right {
     position: absolute;
-    top: 50%;
+    top: 40%;
     height: 50px;
     width: 50px;
     display: flex;

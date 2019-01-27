@@ -14,11 +14,32 @@ class CarouselImage extends Component {
       selectedImage: 0
     };
   }
+
+  //   componentDidMount() {
+  //   }
+
+  nextImage = () => {
+    const { imageList } = this.props;
+    if (this.state.selectedImage < imageList.length - 1) {
+      this.setState(prevState => ({
+        selectedImage: prevState.selectedImage + 1
+      }));
+    }
+  };
+
+  prevImage = () => {
+    if (this.state.selectedImage !== 0) {
+      this.setState(prevState => ({
+        selectedImage: prevState.selectedImage - 1
+      }));
+    }
+  };
+
   render() {
     const { className, imageList } = this.props;
     return (
-      <div className={className}>
-        <LeftArrow className="arrow-left" />
+      <div className={`${className}`}>
+        <LeftArrow className="arrow-left" onClick={this.prevImage} />
 
         {imageList &&
           imageList.map((image, index) =>
@@ -33,7 +54,7 @@ class CarouselImage extends Component {
               ""
             )
           )}
-        <RightArrow className="arrow-right" />
+        <RightArrow className="arrow-right" onClick={this.nextImage} />
       </div>
     );
   }

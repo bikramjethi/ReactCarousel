@@ -1,9 +1,15 @@
 import React from "react";
+import styles from "./LeftArrow.style";
+import styleWrapper from "../../../lib/styleWrapper";
 
 const LeftArrow = props => {
+  const { className, onClick } = props;
   return (
-    <div className={props.className}>This is the left arrow component</div>
+    <div className={className} onClick={onClick}>
+      <div className="left-arrow" />
+    </div>
   );
 };
 
-export default LeftArrow;
+const LeftArrowStyles = styleWrapper(LeftArrow, styles);
+export default LeftArrowStyles;
