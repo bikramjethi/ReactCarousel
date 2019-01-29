@@ -26,5 +26,12 @@ const DotSlider = props => {
   );
 };
 
+DotSlider.defaultProps = {
+  className: "",
+  onClick: () => {},
+  imageList: [],
+  selectedImage: 0
+};
+
 const DotSliderStyles = styleWrapper(DotSlider, styles);
 export default DotSliderStyles;

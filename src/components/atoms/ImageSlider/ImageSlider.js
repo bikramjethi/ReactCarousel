@@ -30,5 +30,12 @@ const ImageSlider = props => {
   );
 };
 
+ImageSlider.defaultProps = {
+  className: "",
+  onClick: () => {},
+  imageList: [],
+  selectedImage: 0
+};
+
 const ImageSliderStyles = styleWrapper(ImageSlider, styles);
 export default ImageSliderStyles;

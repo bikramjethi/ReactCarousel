@@ -11,5 +11,10 @@ const LeftArrow = props => {
   );
 };
 
+LeftArrow.defaultProps = {
+  className: "",
+  onClick: () => {}
+};
+
 const LeftArrowStyles = styleWrapper(LeftArrow, styles);
 export default LeftArrowStyles;

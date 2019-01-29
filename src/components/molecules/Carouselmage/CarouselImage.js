@@ -8,6 +8,14 @@ import styles from "./CarouselImage.style";
 import styleWrapper from "../../../lib/styleWrapper";
 
 class CarouselImage extends Component {
+  static defaultProps = {
+    className: "",
+    circular: false,
+    dots: false,
+    slides: false,
+    imageList: []
+  };
+
   constructor(props) {
     super();
     const { imageList } = props;
