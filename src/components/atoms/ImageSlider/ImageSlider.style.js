@@ -16,13 +16,15 @@ export default css`
   }
 
   @media only screen and (min-width: 768px) {
-    .carousel-images {
-      width: 50px;
-      height: 50px;
-    }
+    &.images-wrapper {
+      .carousel-images {
+        width: 50px;
+        height: 50px;
+      }
 
-    .selected-image {
-      border: 5px solid #fff;
+      .selected-image {
+        border: 5px solid #fff;
+      }
     }
   }
 `;
