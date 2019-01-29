@@ -2,6 +2,9 @@ import { css } from "styled-components";
 
 export default css`
   position: relative;
+  .carousel-main {
+    position: relative;
+  }
   .slider-image {
     width: 100%;
     max-height: 768px;
@@ -39,5 +42,10 @@ export default css`
 
   .arrow-left {
     left: 0;
+  }
+  .slider-options {
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
 `;
