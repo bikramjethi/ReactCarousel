@@ -14,7 +14,14 @@ class Carousel extends Component {
     imageList: []
   };
   render() {
-    const { className, circular, dots, slides, imageList } = this.props;
+    const {
+      className,
+      circular,
+      dots,
+      slides,
+      imageList,
+      enableSwipe
+    } = this.props;
     return (
       <div className={className}>
         <CarouselImage
@@ -23,6 +30,7 @@ class Carousel extends Component {
           circular={circular}
           dots={dots}
           slides={slides}
+          enableSwipe={enableSwipe}
         />
       </div>
     );

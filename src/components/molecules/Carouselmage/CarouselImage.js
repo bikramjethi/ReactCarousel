@@ -21,9 +21,30 @@ class CarouselImage extends Component {
     const { imageList } = props;
     this.state = {
       imageList,
-      selectedImage: 0
+      selectedImage: 0,
+      touchInitial: 0,
+      touchFinal: 0
     };
   }
+
+  handleTouchStart = e => {
+    const touchPoint = e.targetTouches[0];
+    this.setState({
+      touchInitial: touchPoint.clientX
+    });
+  };
+
+  handleTouchEnd = e => {
+    const { touchInitial, touchFinal } = this.state;
+    touchInitial > touchFinal ? this.nextImage() : this.prevImage();
+  };
+
+  handleTouchMove = e => {
+    const touchPoint = e.targetTouches[0];
+    this.setState({
+      touchFinal: touchPoint.clientX
+    });
+  };
 
   selectCarouselImage = index => {
     this.setState({
@@ -62,26 +83,20 @@ class CarouselImage extends Component {
   };
 
   render() {
-    const { className, imageList, dots, slides } = this.props;
+    const { className, imageList, dots, slides, enableSwipe } = this.props;
     const { selectedImage } = this.state;
     return (
       <div className={`${className}`}>
         <div className="carousel-main">
           <LeftArrow className="arrow-left" onClick={this.prevImage} />
-
-          {imageList &&
-            imageList.map((image, index) =>
-              imageList[selectedImage] === image ? (
-                <img
-                  src={image}
-                  key={index}
-                  alt={`carousel${index}`}
-                  className="slider-image"
-                />
-              ) : (
-                ""
-              )
-            )}
+          <img
+            src={imageList[selectedImage]}
+            alt={`carouselImage`}
+            className="slider-image"
+            onTouchStart={enableSwipe ? e => this.handleTouchStart(e) : null}
+            onTouchMove={enableSwipe ? e => this.handleTouchMove(e) : null}
+            onTouchEnd={enableSwipe ? e => this.handleTouchEnd(e) : null}
+          />
           <RightArrow className="arrow-right" onClick={this.nextImage} />
         </div>
         <div className="slider-options">
