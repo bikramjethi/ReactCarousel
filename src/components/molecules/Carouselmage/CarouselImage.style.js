@@ -2,15 +2,20 @@ import { css } from "styled-components";
 
 export default css`
   position: relative;
+  .carousel-main {
+    position: relative;
+  }
   .slider-image {
     width: 100%;
+    max-height: 768px;
   }
+
   .arrow-left,
   .arrow-right {
     position: absolute;
-    top: 50%;
-    height: 50px;
-    width: 50px;
+    top: 40%;
+    height: 30px;
+    width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,10 +26,24 @@ export default css`
   }
 
   .arrow-right {
-    right: 0;
+    right: 5px;
   }
 
   .arrow-left {
-    left: 0;
+    left: 5px;
+  }
+
+  .slider-options {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .arrow-left,
+    .arrow-right {
+      width: 50px;
+      height: 50px;
+    }
   }
 `;

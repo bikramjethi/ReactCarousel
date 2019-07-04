@@ -1,9 +1,20 @@
 import React from "react";
+import styles from "./RightArrow.style";
+import styleWrapper from "../../../lib/styleWrapper";
 
 const RightArrow = props => {
+  const { className, onClick } = props;
   return (
-    <div className={props.className}>This is the right arrow component</div>
+    <div className={className} onClick={onClick}>
+      <div className="right-arrow" />
+    </div>
   );
 };
 
-export default RightArrow;
+RightArrow.defaultProps = {
+  className: "",
+  onClick: () => {}
+};
+
+const RightArrowStyles = styleWrapper(RightArrow, styles);
+export default RightArrowStyles;

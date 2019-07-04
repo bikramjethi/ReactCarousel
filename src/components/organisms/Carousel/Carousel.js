@@ -4,14 +4,34 @@ import CarouselImage from "../../molecules/Carouselmage";
 import styles from "./Carousel.style";
 
 import styleWrapper from "../../../lib/styleWrapper";
-import { imageUrls } from "./mockData";
 
 class Carousel extends Component {
+  static defaultProps = {
+    className: "",
+    circular: false,
+    dots: false,
+    slides: false,
+    imageList: []
+  };
   render() {
-    const { className } = this.props;
+    const {
+      className,
+      circular,
+      dots,
+      slides,
+      imageList,
+      enableSwipe
+    } = this.props;
     return (
       <div className={className}>
-        <CarouselImage className="col-xs-12" imageList={imageUrls} />
+        <CarouselImage
+          className="col-xs-12"
+          imageList={imageList}
+          circular={circular}
+          dots={dots}
+          slides={slides}
+          enableSwipe={enableSwipe}
+        />
       </div>
     );
   }
